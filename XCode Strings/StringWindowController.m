@@ -680,7 +680,8 @@
     StringEditViewController* editViewController = (StringEditViewController*)controller;
     NSString *string1 = editViewController.textView.string;
     NSString *string2 = [string1 stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
-    [self changeWithKey:editViewController.key identifier:editViewController.identifier newValue:string2];
+    NSString *string3 = [string2 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    [self changeWithKey:editViewController.key identifier:editViewController.identifier newValue:string3];
 }
 
 #pragma mark - NSTableViewDelegate & NSTableViewDataSource
@@ -719,7 +720,7 @@
         if(!aView) {
             aView = [[NSButton alloc]initWithFrame:NSZeroRect];
             [aView setButtonType:NSToggleButton];
-            [aView setTitle:NSLocalizedString(@"Remove", nil) textColor:[NSColor blackColor]];
+            [aView setTitle:NSLocalizedString(@"Remove", nil) textColor:[NSColor textColor]];
             [aView setAlternateTitle:NSLocalizedString(@"Revoke", nil) textColor:[NSColor redColor]];
             [aView setAction:@selector(removeAction:)];
             [aView setTarget:self];
@@ -746,7 +747,7 @@
         NSTextField *aView = [tableView makeViewWithIdentifier:@"MYCell" owner:self];
         if(!aView) {
             aView = [[NSTextField alloc]initWithFrame:NSZeroRect];
-            [aView setTextColor:[NSColor blackColor]];
+            [aView setTextColor:[NSColor textColor]];
             [aView setBordered:NO];
             [aView setFont:kFont];
             [aView setEditable:NO];
