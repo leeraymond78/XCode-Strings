@@ -12,7 +12,7 @@
 #import "StringSetting.h"
 #import <objc/runtime.h>
 
-NSString * const kRegularExpressionPattern = @"^(\"([^/]\\S+.*)\"|([^/]\\S+.*\\S+))\\s*=\\s*\"(.*)\";$";
+NSString * const kRegularExpressionPattern = @"^(\"(\\S+.*)\"|([^/]\\S+.*\\S+))\\s*=\\s*\"(.*)\";$";
 
 @implementation StringModel
 
